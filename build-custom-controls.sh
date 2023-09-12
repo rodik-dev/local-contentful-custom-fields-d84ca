@@ -1,5 +1,5 @@
 
-cd .stackbit/custom-controls
+cd custom-controls
 echo "installing custom-controls dependencies"
 npm install
 echo "building custom controls"
