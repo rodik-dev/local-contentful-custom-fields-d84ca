@@ -4,6 +4,7 @@ const config = {
   stackbitVersion: '~0.6.0',
   ssgName: 'nextjs',
   nodeVersion: '16',
+  postInstallCommand: './build-custom-controls.sh',
   contentSources: [
     new ContentfulContentSource({
       spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -12,7 +13,22 @@ const config = {
       accessToken: process.env.CONTENTFUL_MANAGEMENT_TOKEN,
     }),
   ],
-  modelExtensions: [{ name: 'page', type: 'page', urlPath: '/{slug}' }],
+  modelExtensions: [{ name: 'page', type: 'page', urlPath: '/{slug}' }, {
+    name: 'hero', fields: [
+      {
+        name: 'body2',
+        type: 'richText',
+        controlType: 'custom-inline-html',
+        controlFilePath: 'custom-controls/custom-richtext.html'
+      },
+      {
+        name: 'body3',
+        type: 'string',
+        controlType: 'custom-inline-html',
+        controlFilePath: 'custom-controls/custom-jodit.html'
+      }
+    ]
+  }],
   // Needed only for importing this repository via https://app.stackbit.com/import?mode=duplicate
   import: {
     type: 'contentful',

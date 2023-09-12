@@ -1,4 +1,5 @@
 import Markdown from 'markdown-to-jsx';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Image from 'next/image';
 import { Button } from './Button.jsx';
 
@@ -20,6 +21,10 @@ export const Hero = (props) => {
               {props.body}
             </Markdown>
           )}
+          <hr></hr>
+          {props.body2 && (<div data-sb-field-path="body2" className="mb-4">{documentToReactComponents(props.body2)}</div>)}
+          <hr></hr>
+          {props.body3 && (<div data-sb-field-path="body3" className="mb-4" dangerouslySetInnerHTML={{__html:props.body3}}></div>)}
           {props.button && <Button {...props.button} />}
         </div>
         <div className="relative hidden w-full overflow-hidden rounded-md lg:block">
