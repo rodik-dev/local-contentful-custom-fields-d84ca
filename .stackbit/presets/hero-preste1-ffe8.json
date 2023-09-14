@@ -1,0 +1,85 @@
+{
+    "model": "hero",
+    "srcType": "contentful",
+    "srcProjectId": "7gd68ja15wd9",
+    "presets": [
+        {
+            "label": "preste1",
+            "locale": null,
+            "metadata": {
+                "categories": [
+                    "presets"
+                ],
+                "canDelete": true
+            },
+            "data": {
+                "heading": "Can you make the perfect sandwich?",
+                "body": "HandSandwich™️ is Central Southwestern Ohio's most highly attended sandwich-making class. Don't delay your ability to craft the perfect sandwich.",
+                "body2": {
+                    "data": {},
+                    "content": [
+                        {
+                            "data": {},
+                            "content": [
+                                {
+                                    "data": {},
+                                    "marks": [],
+                                    "value": "Hello ContentfulRichtext",
+                                    "nodeType": "text"
+                                }
+                            ],
+                            "nodeType": "paragraph"
+                        },
+                        {
+                            "data": {},
+                            "content": [
+                                {
+                                    "data": {},
+                                    "marks": [],
+                                    "value": "oiashdg",
+                                    "nodeType": "text"
+                                },
+                                {
+                                    "data": {},
+                                    "marks": [
+                                        {
+                                            "type": "bold"
+                                        }
+                                    ],
+                                    "value": "laks fkas",
+                                    "nodeType": "text"
+                                }
+                            ],
+                            "nodeType": "paragraph"
+                        },
+                        {
+                            "data": {},
+                            "content": [
+                                {
+                                    "data": {},
+                                    "marks": [
+                                        {
+                                            "type": "bold"
+                                        }
+                                    ],
+                                    "value": "gsdfgdsfg",
+                                    "nodeType": "text"
+                                }
+                            ],
+                            "nodeType": "paragraph"
+                        }
+                    ],
+                    "nodeType": "document"
+                },
+                "body3": "<p>Hello Jodit</p><p><span style=\"background-color: rgb(255, 0, 0);\">fkajsdh</span> fkjasd</p><p>asf asdfjkl</p><p><br></p><p><br></p>",
+                "image": null,
+                "button": {
+                    "$$ref": "36U7omnF7aFEHjVKwEhJI7",
+                    "$$type": "button"
+                },
+                "theme": "imgLeft"
+            },
+            "thumbnail": "images/hero-preste1-ffe8.png"
+        }
+    ]
+}
