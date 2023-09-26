@@ -84,7 +84,7 @@ const RichTextExample = () => {
               initialValue={externalValue}
               onChange={onChange}
               onLoaded={onLoaded}
-              contentfulAccessToken={window.CONTENTFUL_MANAGEMENT_TOKEN}
+              contentfulAccessToken={"CFPAT-sdVcz1X8uolNna1ppaBV2Ky8dJ9Y7ahixECBmEg8bws"}
               contentfulSpaceId={optionsRef.current?.srcProjectId}
               contentfulEnvironment={`master`}
               entryId={optionsRef.current?.srcDocumentId}
