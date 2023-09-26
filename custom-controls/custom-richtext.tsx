@@ -84,7 +84,7 @@ const RichTextExample = () => {
               initialValue={externalValue}
               onChange={onChange}
               onLoaded={onLoaded}
-              contentfulAccessToken={process.env.CONTENTFUL_MANAGEMENT_TOKEN}
+              contentfulAccessToken={window.CONTENTFUL_MANAGEMENT_TOKEN}
               contentfulSpaceId={optionsRef.current?.srcProjectId}
               contentfulEnvironment={`master`}
               entryId={optionsRef.current?.srcDocumentId}
