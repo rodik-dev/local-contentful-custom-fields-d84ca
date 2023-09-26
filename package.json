@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "./build-custom-controls.sh && next dev",
+    "build": "./build-custom-controls.sh && next build",
+    "start": "./build-custom-controls.sh && next start",
     "build-custom-controls": "./build-custom-controls.sh"
   },
   "dependencies": {
