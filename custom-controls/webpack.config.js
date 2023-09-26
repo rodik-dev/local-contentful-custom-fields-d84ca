@@ -16,7 +16,11 @@ const config = {
         host: 'localhost',
         port: 7070
     },
-    plugins: [],
+    plugins: [
+        new webpack.DefinePlugin({
+            "CONTENTFUL_MANAGEMENT_TOKEN": process.env.CONTENTFUL_MANAGEMENT_TOKEN
+        })
+    ],
     module: {
         rules: [
             {
