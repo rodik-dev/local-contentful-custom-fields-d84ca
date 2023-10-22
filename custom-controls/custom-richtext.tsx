@@ -1,9 +1,16 @@
 import * as React from 'react';
-import  * as ReactDom from 'react-dom';
+import * as ReactDom from 'react-dom';
 import type * as StackbitTypes from '@stackbit/types';
 import { ContentfulRichText } from '@stackbit/typewriter';
 import { deserialize, serialize, useDebounceCallback, useMount } from './utils';
 import * as ContentfulRichTextTypes from '@contentful/rich-text-types';
+
+export type ControlUpdateData = {
+    srcType: string;
+    srcProjectId: string;
+    srcDocumentId: string;
+    fieldModel: { name: string };
+};
 
 const initialContextWindow = window as unknown as StackbitTypes.CustomControlWindow;
 initialContextWindow.stackbit = initialContextWindow.stackbit || {};
@@ -12,10 +19,10 @@ const RichTextExample = () => {
     const [externalValue, setExternalValue] = React.useState<ContentfulRichTextTypes.Document>();
     const [value, setValue] = React.useState([]);
     const containerRef = React.useRef<HTMLDivElement>();
-    const optionsRef = React.useRef<StackbitTypes.OnUpdateOptions>();
+    const optionsRef = React.useRef<StackbitTypes.OnUpdateOptions & ControlUpdateData>();
 
     useMount(() => {
-        initialContextWindow.stackbit.onUpdate = (options: StackbitTypes.OnUpdateOptions) => {
+        initialContextWindow.stackbit.onUpdate = (options: StackbitTypes.OnUpdateOptions & ControlUpdateData) => {
             optionsRef.current = options;
             console.log('Got Options', options);
             const fieldVal = (options.documentField as StackbitTypes.DocumentRichTextFieldNonLocalized).value;
@@ -38,7 +45,6 @@ const RichTextExample = () => {
             // editor.children = deserialize(externalValue);
         }
     }, [externalValue]);
-
 
     const changeValue = useDebounceCallback(
         () => {
@@ -72,7 +78,7 @@ const RichTextExample = () => {
 
     const onLoaded = () => {
         optionsRef?.current?.setDesiredControlSize({ height: containerRef.current.offsetHeight });
-    }
+    };
 
     if (!optionsRef.current) {
         return null;
@@ -81,14 +87,16 @@ const RichTextExample = () => {
     return (
         <div ref={containerRef}>
             <ContentfulRichText
-              initialValue={externalValue}
-              onChange={onChange}
-              onLoaded={onLoaded}
-              contentfulAccessToken={process.env.CONTENTFUL_MANAGEMENT_TOKEN}
-              contentfulSpaceId={optionsRef.current?.srcProjectId}
-              contentfulEnvironment={`master`}
-              entryId={optionsRef.current?.srcDocumentId}
-              entryFieldName={optionsRef.current?.fieldModel.name}
+                initialValue={externalValue}
+                onChange={onChange}
+                onLoaded={onLoaded}
+                contentfulAccessToken={process.env.CONTENTFUL_MANAGEMENT_TOKEN}
+                contentfulSpaceId={optionsRef.current?.srcProjectId}
+                contentfulEnvironment={`master`}
+                entryId={optionsRef.current?.srcDocumentId}
+                entryFieldName={optionsRef.current?.fieldModel.name}
+                onSelectAsset={() => {}}
+                onSelectEntry={() => {}}
             />
         </div>
     );

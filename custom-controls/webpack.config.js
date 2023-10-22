@@ -1,5 +1,7 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
+const webpack = require('webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -16,7 +18,13 @@ const config = {
         host: 'localhost',
         port: 7070
     },
-    plugins: [],
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'CONTENTFUL_MANAGEMENT_TOKEN': JSON.stringify(process.env.CONTENTFUL_MANAGEMENT_TOKEN)
+            }
+        })
+    ],
     module: {
         rules: [
             {
