@@ -28,7 +28,7 @@ export const Stats = (props) => {
   );
 };
 
-const StatItem = (props) => {
+export const StatItem = (props) => {
   return (
     <div data-sb-object-id={props.id}>
       <div className="mb-3 text-4xl font-bold sm:text-5xl" data-sb-field-path="value">

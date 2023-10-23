@@ -33,7 +33,7 @@ export async function getPageFromSlug(slug) {
   return mapEntry(page);
 }
 
-function mapEntry(entry) {
+export function mapEntry(entry) {
   const id = entry.sys?.id;
   const type = entry.sys?.contentType?.sys?.id || entry.sys?.type;
 

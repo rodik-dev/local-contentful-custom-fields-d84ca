@@ -24,7 +24,6 @@ const RichTextExample = () => {
     useMount(() => {
         initialContextWindow.stackbit.onUpdate = (options: StackbitTypes.OnUpdateOptions & ControlUpdateData) => {
             optionsRef.current = options;
-            console.log('Got Options', options);
             const fieldVal = (options.documentField as StackbitTypes.DocumentRichTextFieldNonLocalized).value;
             if (externalValue != fieldVal) {
                 setExternalValue(fieldVal);
